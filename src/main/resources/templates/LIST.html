@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图书列表</title>
+  <!-- 新 Bootstrap4 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+  <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- 背景 -->
+  <style>
+    body
+    {
+      background-image:url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg95.699pic.com%2Fxsj%2F1f%2Fww%2F7u.jpg%21%2Ffw%2F700%2Fwatermark%2Furl%2FL3hzai93YXRlcl9kZXRhaWwyLnBuZw%2Falign%2Fsoutheast&refer=http%3A%2F%2Fimg95.699pic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668746864&t=215857f1f529ba82f21b6c74f688343a');
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>BookList</h2>
+  <a class="btn btn-primary float-right" href="./ADD.html" th:href="@{./add}">Add</a>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Date</th>
+      <th>Quantity</th>
+      <th>Operations</th>
+    </tr>
+    </thead>
+    <tbody th:remove="all-but-first">
+    <tr th:each="book:${books}" >
+      <td th:text="${bookStat.count}">1</td>
+      <td th:text="${book.name}">书名</td>
+      <td th:text="${book.author}">作者</td>
+      <td th:text="${book.publisher}">出版社</td>
+      <td th:text="${book.date}">出版日期</td>
+      <td th:text="${book.quantity}">库存</td>
+      <td>
+        <a type="button" class="btn btn-xs btn-success" href="./EDIT.html?id=1"
+           th:href="@{./edit(id=${book.id})}">编辑</a>
+        <a type="button" class="btn  btn-xs btn-danger" href="./delete?id=1"
+           th:href="@{./delete(id=${book.id})}">删除</a>
+        <a type="button" class="btn btn-xs btn-success" href="./review?id=1"
+           th:href="@{./review(id=${book.id})}">评论</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

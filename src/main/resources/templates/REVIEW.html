@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>评论区</title>
+
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- 背景 -->
+    <style>
+        body
+        {
+            background-image:url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg95.699pic.com%2Fxsj%2F1f%2Fww%2F7u.jpg%21%2Ffw%2F700%2Fwatermark%2Furl%2FL3hzai93YXRlcl9kZXRhaWwyLnBuZw%2Falign%2Fsoutheast&refer=http%3A%2F%2Fimg95.699pic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668746864&t=215857f1f529ba82f21b6c74f688343a');
+            background-size: cover;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Review</h2>
+    <a class="btn btn-primary float-right" href="./ADDRE.html" th:href="@{./addrev}">评论</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Index</th>
+            <th>Content</th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each="review:${reviews}" >
+            <td th:text="${reviewStat.count}">1</td>
+            <td th:text="${review.content}">内容</td>
+
+            <td>
+                <a type="button" class="btn  btn-xs btn-danger" href="./deletere?id=1"
+                   th:href="@{./deletere(id=${review.id})}">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

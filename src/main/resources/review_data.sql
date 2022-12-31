@@ -1,0 +1,1 @@
+INSERT INTO `review` VALUES (1, 1,'五星好评');

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加评论</title>
+
+    <!-- 背景 -->
+    <style>
+        body
+        {
+            background-image:url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg95.699pic.com%2Fxsj%2F1f%2Fww%2F7u.jpg%21%2Ffw%2F700%2Fwatermark%2Furl%2FL3hzai93YXRlcl9kZXRhaWwyLnBuZw%2Falign%2Fsoutheast&refer=http%3A%2F%2Fimg95.699pic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668746864&t=215857f1f529ba82f21b6c74f688343a');
+            background-size: cover;
+        }
+    </style>
+
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./REVIEW.html" th:href="@{./review}">评论区</a></li>
+        <li class="breadcrumb-item active">评论</li>
+    </ol>
+    <form action="./addrev" method="post" th:action="@{./addrev}">
+        <div class="form-group">
+            <label for="book_id">评论书籍号:</label>
+            <input type="number" class="form-control" id="book_id" name="book_id">
+        </div>
+        <div class="form-group">
+            <label for="content">内容:</label>
+            <input type="text" class="form-control" id="content" name="content">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
